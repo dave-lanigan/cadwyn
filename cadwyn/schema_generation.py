@@ -369,7 +369,7 @@ class _PydanticModelWrapper(Generic[_T_PYDANTIC_MODEL]):
             if not validator.is_deleted and type(validator) == _PerFieldValidatorWrapper  # noqa: E721
         }
         root_validators = {
-            name: validator.decorator(**validator.kwargs)(validator.func)
+            name: validator.decorator(**validator.kwargs)(validator.func) if validator.decorator != computed_field else validator.decorator()(validator.func)
             for name, validator in self.validators.items()
             if not validator.is_deleted and type(validator) == _ValidatorWrapper  # noqa: E721
         }
