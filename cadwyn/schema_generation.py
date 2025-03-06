@@ -30,7 +30,7 @@ import pydantic
 import pydantic._internal._decorators
 from fastapi import Response
 from fastapi.routing import APIRoute
-from pydantic import BaseModel, Field, RootModel
+from pydantic import BaseModel, Field, RootModel, computed_field
 from pydantic._internal import _decorators
 from pydantic._internal._decorators import (
     FieldSerializerDecoratorInfo,
